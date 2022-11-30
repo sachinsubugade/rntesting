@@ -42,3 +42,42 @@ test('zero', () => {
     expect(z).not.toBeTruthy();
     expect(z).toBeFalsy();
 })
+
+//Numbers
+test('two plus two', () => {
+    const value = 2 + 2;
+    expect(value).toBeGreaterThan(3);
+    expect(value).toBeGreaterThanOrEqual(3.5);
+    expect(value).toBeLessThan(5);
+    expect(value).toBeLessThanOrEqual(5);
+})
+
+//for floating point equality, use 'toBeCloseTo' instead 'toEqual'
+test('add floating point numbers', () => {
+    const value = 0.1 + 0.2;
+    // expect(value).toBe(0.3);
+    expect(value).toBeCloseTo(0.3);
+})
+
+//Strings
+test('there is no I in team', () => {
+    expect('team').not.toMatch(/I/);
+})
+
+test('but there is a "stop" in Christoph', () => {
+    expect('Christoph').toMatch(/stop/);
+})
+
+//Array and iterables
+const shoppingList = [
+    'diapers',
+    'kleenex',
+    'trash bags',
+    'paper towel',
+    'milk'
+];
+
+test('the shoopping list has milk on it', () => {
+    expect(shoppingList).toContain('milk');
+    expect(new Set(shoppingList)).toContain('milk');
+})
